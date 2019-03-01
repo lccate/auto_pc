@@ -1,5 +1,5 @@
 # python控制电脑鼠标键盘自动运行
-相关资料查阅：  
+### 相关资料查阅：  
 pywin32模拟鼠标查阅：https://www.cnblogs.com/huidaoli/p/7398392.html  
 pywin32模拟键盘同时按下几个按键：https://blog.csdn.net/u014595019/article/details/49131321  
 pywin32.keybd_event模拟键盘输入：https://blog.csdn.net/polyhedronx/article/details/81988948  
@@ -8,7 +8,7 @@ pyautogui自动输入：https://blog.csdn.net/qq_40379759/article/details/804272
 pyautogui：https://www.jianshu.com/p/ff337d381a64  
 pyautogui：https://hugit.app/posts/doc-pyautogui.html  
 
-出现的问题：  
+### 出现的问题：  
 分别尝试了3种方法pywin32，pyuserinput，pyautogui  
 1.使用pywin32时，运行程序改变了原有的鼠标和键盘，得重新开机关机才能恢复正常  
 2.安装pyUserInput时一直出现以下错误提示，手动安装也未能解决问题  
@@ -16,8 +16,18 @@ pyautogui：https://hugit.app/posts/doc-pyautogui.html
 Could not find a version that satisfies the requirement pyHook (from PyUserInput) (from versions: )
 No matching distribution found for pyHook (from PyUserInput)
 ```
-3.安装pyautogui时，出现错误提示
+3.安装pyautogui时，出现错误提示  
 ```
 Command "python setup.py egg_info" failed with error code 1 in C:\Users\lcc\AppData\Local\Temp\pip-install-5sm1527n\pygetwindow\
 ```
-查找了大量的
+查找了大量的资料，终于找到解决方法，这个错误是安装pyautogui的核心错误，解决方法就是降低PyGetWindow的版本，运行以下命令： 
+```
+pip install PyGetWindow==0.01
+```
+安装完PyGetWindow后出现以下提示，将下列包一个个pip即可  
+```
+pyautogui 0.9.41 requires pymsgbox, which is not installed.
+pyautogui 0.9.41 requires pyscreeze, which is not installed.
+pyautogui 0.9.41 requires PyTweening>=1.0.1, which is not installed.
+```
+最终pyautogui安装成功，import后无错误提示  
