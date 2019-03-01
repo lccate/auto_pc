@@ -31,3 +31,13 @@ pyautogui 0.9.41 requires pyscreeze, which is not installed.
 pyautogui 0.9.41 requires PyTweening>=1.0.1, which is not installed.
 ```
 最终pyautogui安装成功，import后无错误提示  
+4.直接使用pyautogui.typewrite函数会导致只能输入一个‘ ’
+
+### 程序设计
+实现功能：将excel表格中身份证号信息输入系统文本框，截图出现的信息并保存  
+* 1.提取表格前100人的身份证号放入数组  
+* 2.遍历数组  
+* 3.对于每个人都执行以下操作：  
+1定位系统文本框坐标（定位坐标的方法很简单，打开qq的截图功能，从左上角0，0位置开始截图，显示数字多少就说明右下角的坐标是多少）  
+2输入身份证号字符串（注意是字符串不是整数，因为有的身份证号后面带有X，从excel直接提取的字符串后面带有一个空格，直接使用pyautogui.typewrite函      数会导致只能输入一个‘ ’，解决方法见‘出现的问题4’）  
+3定位系统
